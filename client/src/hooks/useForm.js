@@ -9,7 +9,7 @@ function useForm() {
     const navigate = useNavigate()
 
     const callRegister = async (firstName, lastName, email, password) => {
-        const response = await axios.post('http://localhost:5000/user/register', {
+        const response = await axios.post('https://mern-simple-form.herokuapp.com/user/register', {
             fName: firstName,
             lName: lastName,
             em: email,
@@ -22,7 +22,7 @@ function useForm() {
     }
 
     const callLogin = async (email, password) => {
-        const response = await axios.post('http://localhost:5000/user/login', {
+        const response = await axios.post('https://mern-simple-form.herokuapp.com/user/login', {
             em: email,
             pass: password,
         })
