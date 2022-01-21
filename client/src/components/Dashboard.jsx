@@ -14,7 +14,7 @@ function Dashboard( {data} ) {
     }
 
     async function callUserData() {
-        await axios.get('http://localhost:5000/user/dashboard', {
+        await axios.get('https://mern-simple-form.herokuapp.com/user/dashboard', {
             headers: { 'x-access-token': localStorage.getItem('token'), },
         }).then(res => setUsername(res.status))
     } 
