@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(90deg,#ff4d89, #ffcc8d, #fff);
+}
+
+.form-wrapper {
+  box-shadow: 0 0 2px 2px #fff;
+  border-radius: 10px;
+  width: 550px;
+  background: #ffffff;
+  padding: 2.5em 1.5em;
+}
+
+.form-title, .form-subtitle {
+  text-align: center;
+  margin-bottom: .5em;
+}
+
+.form-title {
+  font-size: 2.5rem;
+}
+
+.form-subtitle {
+  font-weight: 400;
+  margin-bottom: 1.5em;
+}
+
+.form-subtitle a {
+  color: #72a4e3;
+}
+
+#form-simple {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#form-simple input {
+  width: 100%;
+  padding: 1em;
+  border-radius: 10px;
+  outline: none;
+  height: 60px;
+  font-size: 1.2rem;
+  margin-bottom: 1em;
+  border: none;
+  background: #f8f8f8;
+  transition: background 200ms ease-in-out, box-shadow 200ms ease-in-out;
+}
+
+#form-simple input:focus {
+  background: #fff;
+  box-shadow: 0 0 5px 5px #f3f3f3;
+}
+
+#form-simple input::placeholder {
+  font-style: italic;
+  opacity: 0.7;
+}
+
+#form-simple button {
+  background: #4896ff;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  padding: .7em;
+  color: #fff;
+  font-size: 1.4rem;
+  transition: box-shadow 200ms ease-in-out, background 200ms ease-in-out;
+}
+
+#form-simple button:hover {
+  background: #2e85fa;
+  cursor: pointer;
+}
