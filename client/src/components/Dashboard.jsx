@@ -2,8 +2,9 @@ import axios from 'axios'
 import React, { useEffect, useState }from 'react'
 import { decodeToken } from 'react-jwt'
 import { useNavigate } from 'react-router-dom'
+import Loading from './Loading'
 
-function Dashboard( {data} ) {
+function Dashboard( {data, setLoading} ) {
 
     const [ username, setUsername ] = useState()
     const navigate = useNavigate()
@@ -17,6 +18,7 @@ function Dashboard( {data} ) {
         await axios.get('https://mern-simple-form.herokuapp.com/user/dashboard', {
             headers: { 'x-access-token': localStorage.getItem('token'), },
         }).then(res => setUsername(res.status))
+            .finally(() => setLoading(false))
     } 
 
     // verify user if logged in
@@ -35,7 +37,7 @@ function Dashboard( {data} ) {
 
     return (
         <div>
-            {username ? 'Login successful' : 'No user logged in'}
+            {username ? 'Login successful' : <Loading />}
             {username && <button onClick={logout}>Log out</button>}
         </div>
     )

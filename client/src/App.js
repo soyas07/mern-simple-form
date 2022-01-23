@@ -5,10 +5,11 @@ import useForm from './hooks/useForm';
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'
 import Dashboard from './components/Dashboard';
+import Loading from './components/Loading';
 
 function App() {
 
-  const { submitForm, resData, error, setError } = useForm()
+  const { submitForm, resData, error, setError, isLoading, setLoading } = useForm()
 
   const [form, setForm] = useState(
       {
@@ -39,8 +40,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Register error={error} handleInput={handleInput} form={form} handleSubmit={handleSubmit} />} />
           <Route path="login" element={<Login error={error} handleInput={handleInput} form={form} handleSubmit={handleSubmit} />} />
-          <Route path="dashboard" element={<Dashboard data={resData} />} />
+          <Route path="dashboard" element={<Dashboard data={resData} setLoading={setLoading} />} />
+          
         </Routes>
+        {/* {isLoading && <Loading />} */}
       </div>
   );
 }

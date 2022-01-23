@@ -6,9 +6,11 @@ function useForm() {
 
     const [ resData, setData ] = useState()
     const [ error, setError ] = useState()
+    const [ isLoading, setLoading ] = useState(false)
     const navigate = useNavigate()
 
     const callRegister = async (firstName, lastName, email, password) => {
+        
         const response = await axios.post('https://mern-simple-form.herokuapp.com/user/register', {
             fName: firstName,
             lName: lastName,
@@ -17,11 +19,15 @@ function useForm() {
         })
 
         const res = await response.data
-        if(res.status === 'ok') navigate('login')
+        if(res.status === 'ok') {
+            navigate('login')
+        }
         else setError('Email already exist!')
     }
 
     const callLogin = async (email, password) => {
+        setLoading(true)
+        
         const response = await axios.post('https://mern-simple-form.herokuapp.com/user/login', {
             em: email,
             pass: password,
@@ -42,7 +48,7 @@ function useForm() {
         if (value === 'login') callLogin(email, password) 
     }
     
-    return { submitForm, resData, error, setError }
+    return { submitForm, resData, error, setError, isLoading, setLoading }
 }
 
 export default useForm
